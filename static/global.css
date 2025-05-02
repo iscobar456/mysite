@@ -1,0 +1,98 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
+
+:root {
+    --background: #ffffff;
+    --foreground: #171717;
+    --accent: #d9c004;
+    --secondary: #414759;
+    --secondary-transparent: #404e63d9;
+    --secondary-transparent-dark: #282c33b8;
+    --secondary-light: #f2f4f7;
+    --gray: #e1e1e1;
+}
+
+html,
+body {
+    width: 100%;
+    min-height: 100vh;
+    margin: 0;
+}
+
+body {
+    font-size: 10px;
+    color: var(--foreground);
+    background: var(--background);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: Lora, serif;
+}
+
+p {
+    font-family: Lora, serif;
+}
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+:root {
+    --content-width: 100%;
+}
+
+@media (min-width: 576px) {
+    :root {
+        --content-width: 576px;
+    }
+
+    body {
+        font-size: 12px;
+    }
+}
+
+@media (min-width: 768px) {
+    :root {
+        --content-width: 576px;
+    }
+
+    body {
+        font-size: 13px;
+    }
+}
+
+@media (min-width: 992px) {
+    :root {
+        --content-width: 576px;
+    }
+
+    body {
+        font-size: 16px;
+    }
+}
+
+@media (min-width: 1200px) {
+    :root {
+        --content-width: 576px;
+    }
+}
+
+@media (min-width: 1400px) {
+    :root {
+        --content-width: 576px;
+    }
+}
