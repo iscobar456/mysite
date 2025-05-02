@@ -12,7 +12,7 @@
   </li>
   <li>|</li>
   <li>
-    <a href="https://github.com/iscobar456">GitHub</a>
+    <a target="_blank" href="https://github.com/iscobar456">GitHub</a>
   </li>
   <li>|</li>
   <li>
