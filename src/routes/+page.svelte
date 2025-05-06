@@ -29,4 +29,7 @@
   ul li {
     list-style: none;
   }
+  ul li a {
+    font-family: Lora;
+  }
 </style>
