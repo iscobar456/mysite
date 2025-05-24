@@ -28,3 +28,7 @@ vite.config.ts.timestamp-*
 
 # Database
 mysite.db
+backups
+
+# Config
+.sqllsrc.json
