@@ -1,5 +1,6 @@
 <script>
   let { children } = $props();
+  import '../app.css';
 </script>
 
 <div class="content">
@@ -11,10 +12,11 @@
     display: flex;
     flex-direction: column;
     width: var(--content-width);
-    margin: 20vh auto 0 auto;
+    margin: 8vh auto 0 auto;
     padding: 0 3rem;
   }
   :global(.page-heading h1) {
+    margin-top: 12vh;
     font-size: 3rem;
     font-weight: normal;
   }

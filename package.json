@@ -37,6 +37,11 @@
 	"dependencies": {
 		"@oslojs/crypto": "^1.0.1",
 		"@oslojs/encoding": "^1.1.0",
-		"better-sqlite3": "^11.9.1"
+		"@tailwindcss/vite": "^4.2.4",
+		"argon2": "^0.43.0",
+		"better-sqlite3": "^11.9.1",
+		"marked": "^18.0.2",
+		"tailwindcss": "^4.2.4",
+		"zod": "^3.25.58"
 	}
 }

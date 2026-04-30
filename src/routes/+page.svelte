@@ -5,7 +5,7 @@
   <h1>Isaac Spencer</h1>
   <hr />
 </div>
-<p>I’m an undergraduate at Brigham Young University majoring in computer science.</p>
+<p>I’m an undergraduate at Brigham Young University studying computer science.</p>
 <ul>
   <li>
     <a href="/projects/">Projects</a>
