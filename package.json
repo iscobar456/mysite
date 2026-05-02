@@ -20,6 +20,7 @@
 		"@sveltejs/adapter-node": "^5.2.12",
 		"@sveltejs/kit": "^2.16.0",
 		"@sveltejs/vite-plugin-svelte": "^5.0.0",
+		"@tailwindcss/typography": "^0.5.19",
 		"@types/better-sqlite3": "^7.6.13",
 		"eslint": "^9.18.0",
 		"eslint-config-prettier": "^10.0.1",

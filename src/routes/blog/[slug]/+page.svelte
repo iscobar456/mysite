@@ -3,6 +3,6 @@
   let { data }: PageProps = $props();
 </script>
 
-<article id="post">
+<article id="post" class="prose prose-base">
   {@html data.post}
 </article>
