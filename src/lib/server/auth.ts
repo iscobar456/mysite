@@ -1,5 +1,5 @@
 import { encodeBase32LowerCaseNoPadding, encodeHexLowerCase } from "@oslojs/encoding";
-import { db, type Session, type User } from "../db";
+import { db, type Session } from "../db";
 import { sha256 } from "@oslojs/crypto/sha2";
 import type { RequestEvent } from "@sveltejs/kit";
 
@@ -15,17 +15,15 @@ export function generateSessionToken(): string {
 }
 
 
-export function createSession(token: string, userId: number): Session {
+export function createSession(token: string): Session {
     const sessionId = encodeHexLowerCase(sha256(new TextEncoder().encode(token)));
     const session: Session = {
         id: sessionId,
-        userId: userId,
         expiresAt: new Date(Date.now() + DAY_MS * 30)
     }
-    const insertStmt = db.prepare("INSERT INTO session (id, user_id, expires_at) VALUES (?, ?, ?)");
+    const insertStmt = db.prepare("INSERT INTO session (id, expires_at) VALUES (?, ?)");
     insertStmt.run(
         session.id,
-        session.userId,
         Math.floor(session.expiresAt.getTime() / 1000)
     )
     return session;
@@ -35,25 +33,18 @@ export function createSession(token: string, userId: number): Session {
 export function validateSessionToken(token: string): SessionValidationResult {
     const sessionId = encodeHexLowerCase(sha256(new TextEncoder().encode(token)));
     const row = db.prepare(
-        "SELECT session.id, session.user_id, session.expires_at, user.email, user.password \
-         FROM session INNER JOIN user ON session.user_id = user.id \
-         WHERE session.id = ?"
-    ).get(sessionId) as { id: string, userId: number, expiresAt: number, email: string, password: string };
+        "SELECT session.id, session.expires_at \
+         FROM session WHERE session.id = ?"
+    ).get(sessionId) as { id: string, expiresAt: number };
 
     if (row === null) {
-        return { session: null, user: null };
+        return { session: null };
     }
 
     const session: Session = {
         id: row.id,
-        userId: row.userId,
         expiresAt: new Date(row.expiresAt * 1000)
     };
-    const user: User = {
-        id: row.userId,
-        email: row.email,
-        password: row.password
-    }
 
     // Delete session if expired.
     if (session.expiresAt.getTime() <= Date.now()) {
@@ -73,7 +64,7 @@ export function validateSessionToken(token: string): SessionValidationResult {
         )
     }
 
-    return { session, user };
+    return { session };
 }
 
 
@@ -104,14 +95,20 @@ export function invalidateSession(sessionId: string): void {
 }
 
 
-export function invalidateAllSessions(userId: number): void {
+export function invalidateAllSessions(): void {
     db.prepare(
-        "DELETE FROM sessions WHERE user_id = ?"
-    ).run(userId);
+        "DELETE FROM sessions"
+    ).run();
+}
+
+export function isLoggedIn(token: string | undefined | null): boolean {
+    return (
+        token !== undefined
+        && token !== null
+        && validateSessionToken(token).session !== null
+    );
 }
 
 
-export type SessionValidationResult =
-    | { session: Session; user: User }
-    | { session: null; user: null };
+export type SessionValidationResult = { session: Session | null }
 
