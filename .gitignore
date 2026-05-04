@@ -28,6 +28,8 @@ vite.config.ts.timestamp-*
 
 # Database
 mysite.db
+*.db-shm
+*.db-wal
 backups
 
 # Config
