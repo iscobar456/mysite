@@ -26,7 +26,6 @@ export const load: PageServerLoad = async () => {
 
 export const actions = {
     default: async ({ cookies, request }) => {
-        console.log("running")
         if (!isLoggedIn(cookies.get("sessiontoken"))) {
             throw redirect(303, "/login")
         }
