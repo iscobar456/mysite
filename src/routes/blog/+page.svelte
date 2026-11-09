@@ -4,7 +4,7 @@
   let { data }: PageProps = $props();
 </script>
 
-<div class="max-w-[768px] w-full mt-10">
+<div class="max-w-[768px] w-full mt-10 px-5 sm:px-0">
   <a href="/" class="mb-3 block w-full text-right">← Home</a>
   <h1 class="text-3xl">Posts</h1>
   <hr class="block my-3 border-gray-400" />

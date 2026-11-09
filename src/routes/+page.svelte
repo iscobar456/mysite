@@ -8,8 +8,8 @@
     Check out my <a href="/resume/" class="underline">résumé</a> or
     <a href="mailto:oeapyet0p@mozmail.com" class="underline">send me an email</a>.
   </p>
-  <p class="mt-3">
-    Read my <a href="/blog/" class="underline">blog</a> or see my
-    <a href="/readinglist/" class="underline">reading list</a>.
-  </p>
+  <!-- <p class="mt-3"> -->
+  <!--   Read my <a href="/blog/" class="underline">blog</a> or see my -->
+  <!--   <a href="/books/" class="underline">reading list</a>. -->
+  <!-- </p> -->
 </div>

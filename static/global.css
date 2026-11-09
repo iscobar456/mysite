@@ -20,7 +20,7 @@ body {
 }
 
 body {
-  font-size: 10px;
+  font-size: 14px;
   color: var(--foreground);
   background: var(--background);
   -webkit-font-smoothing: antialiased;
