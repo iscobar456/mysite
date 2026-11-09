@@ -10,7 +10,13 @@
   <hr class="block my-3 border-gray-400" />
   <ul>
     {#each data.books as book}
-      <li><a href={`/readinglist/${book.slug}`}>{book.title}</a></li>
+      <li>
+        {#if book.content.trim()}
+          <a href={`/readinglist/${book.slug}`}>{book.title}</a>
+        {:else}
+          {book.title}
+        {/if}
+      </li>
     {/each}
   </ul>
 </div>
