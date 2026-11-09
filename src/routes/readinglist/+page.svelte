@@ -14,7 +14,8 @@
         {#if book.content.trim()}
           <a href={`/readinglist/${book.slug}`}>{book.title}</a>
         {:else}
-          {book.title}
+          <!-- <p> so it picks up the same Lora font as links (static/global.css) -->
+          <p class="inline">{book.title}</p>
         {/if}
       </li>
     {/each}
