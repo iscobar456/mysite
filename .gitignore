@@ -34,3 +34,6 @@ backups
 
 # Config
 .sqllsrc.json
+
+# SQLite database and backups
+mysite.db*

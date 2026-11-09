@@ -11,6 +11,7 @@
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
 		"create-admin": "node scripts/create-admin.js",
+		"migrate": "node scripts/migrate-split-books.js",
 		"format": "prettier --write .",
 		"lint": "prettier --check . && eslint ."
 	},
@@ -42,6 +43,7 @@
 		"@tailwindcss/vite": "^4.2.4",
 		"argon2": "^0.43.0",
 		"better-sqlite3": "^11.9.1",
+		"gridjs": "^6.2.0",
 		"marked": "^18.0.2",
 		"tailwindcss": "^4.2.4",
 		"zod": "^3.25.58"
