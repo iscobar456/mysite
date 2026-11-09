@@ -7,7 +7,7 @@ import { getPostBySlug } from '$lib/db';
 
 export const load: PageServerLoad = async ({ params }) => {
     const post = getPostBySlug(params.slug);
-    if (post === null) {
+    if (post === undefined) {
         console.log("A post with this slug does not exist.")
         error(404, "This post does not exist.")
     }

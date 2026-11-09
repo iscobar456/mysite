@@ -35,15 +35,15 @@ export function validateSessionToken(token: string): SessionValidationResult {
     const row = db.prepare(
         "SELECT session.id, session.expires_at \
          FROM session WHERE session.id = ?"
-    ).get(sessionId) as { id: string, expiresAt: number };
+    ).get(sessionId) as { id: string, expires_at: number } | undefined;
 
-    if (row === null) {
+    if (row === undefined) {
         return { session: null };
     }
 
     const session: Session = {
         id: row.id,
-        expiresAt: new Date(row.expiresAt * 1000)
+        expiresAt: new Date(row.expires_at * 1000)
     };
 
     // Delete session if expired.
@@ -51,6 +51,7 @@ export function validateSessionToken(token: string): SessionValidationResult {
         db.prepare(
             "DELETE FROM session WHERE id = ?"
         ).run(session.id);
+        return { session: null };
     }
 
     // Update expiresAt if within 15 days.
@@ -90,14 +91,14 @@ export function deleteSessionTokenCookie(event: RequestEvent) {
 
 export function invalidateSession(sessionId: string): void {
     db.prepare(
-        "DELETE FROM sessions WHERE id = ?"
+        "DELETE FROM session WHERE id = ?"
     ).run(sessionId);
 }
 
 
 export function invalidateAllSessions(): void {
     db.prepare(
-        "DELETE FROM sessions"
+        "DELETE FROM session"
     ).run();
 }
 
@@ -112,3 +113,9 @@ export function isLoggedIn(token: string | undefined | null): boolean {
 
 export type SessionValidationResult = { session: Session | null }
 
+
+
+export function invalidateSessionToken(token: string): void {
+    const sessionId = encodeHexLowerCase(sha256(new TextEncoder().encode(token)));
+    invalidateSession(sessionId);
+}

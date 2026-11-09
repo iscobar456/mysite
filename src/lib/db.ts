@@ -6,12 +6,16 @@ import type { Post } from './types/blog';
 export const db = new Database('mysite.db');
 db.pragma('journal_mode = WAL');
 
-export const getPosts = (): Post[] | undefined => {
-    const query = db.prepare("SELECT * FROM post").get();
-    if (query === undefined) {
-        return undefined;
-    }
-    return (Array.isArray(query) ? query : [query]) as Post[];
+export const getAllPosts = (): Post[] => {
+    return db.prepare("SELECT * FROM post").all() as Post[];
+}
+
+export const getPosts = (): Post[] => {
+    return db.prepare("SELECT * FROM post WHERE type != 'book'").all() as Post[];
+}
+
+export const getPostsByType = (type: Post['type']): Post[] => {
+    return db.prepare("SELECT * FROM post WHERE type = ?").all(type) as Post[];
 }
 
 export const getPostBySlug = (slug: string): Post | undefined => {

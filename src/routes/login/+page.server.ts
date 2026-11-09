@@ -20,20 +20,18 @@ export const actions = {
 
         const userRow = db.prepare(
             "SELECT password FROM user WHERE username = 'admin' LIMIT 1"
-        ).get() as { password: string };
-        const truePassword = userRow.password;
-        console.log(truePassword);
+        ).get() as { password: string } | undefined;
 
-        if (!await argon2.verify(truePassword, result.data.password)) {
+        if (userRow === undefined || !await argon2.verify(userRow.password, result.data.password)) {
             return { success: false };
         }
 
         const sessionToken = generateSessionToken();
-        createSession(sessionToken);
+        const session = createSession(sessionToken);
         cookies.set(
             'sessiontoken',
             sessionToken,
-            { path: '/' }
+            { path: '/', httpOnly: true, sameSite: 'lax', expires: session.expiresAt }
         )
 
         throw redirect(303, "/admin/")
