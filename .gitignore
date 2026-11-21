@@ -7,6 +7,7 @@ node_modules
 .wrangler
 /.svelte-kit
 /build
+logs/
 
 # OS
 .DS_Store
@@ -37,3 +38,4 @@ backups
 
 # SQLite database and backups
 mysite.db*
+

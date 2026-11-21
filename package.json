@@ -18,11 +18,11 @@
 	"devDependencies": {
 		"@eslint/compat": "^1.2.5",
 		"@eslint/js": "^9.18.0",
-		"@sveltejs/adapter-auto": "^6.0.0",
-		"@sveltejs/adapter-node": "^5.2.12",
-		"@sveltejs/kit": "^2.16.0",
+		"@sveltejs/adapter-auto": "^9.0.0",
+		"@sveltejs/adapter-node": "^6.0.5",
+		"@sveltejs/kit": "^3.4.0",
 		"@sveltejs/vite-plugin-svelte": "^5.0.0",
-		"@tailwindcss/typography": "^0.5.19",
+		"@tailwindcss/typography": "^0.5.4",
 		"@types/better-sqlite3": "^7.6.13",
 		"eslint": "^9.18.0",
 		"eslint-config-prettier": "^10.0.1",
@@ -46,6 +46,6 @@
 		"gridjs": "^6.2.0",
 		"marked": "^18.0.2",
 		"tailwindcss": "^4.2.4",
-		"zod": "^3.25.58"
+		"zod": "^4.6.7"
 	}
 }
