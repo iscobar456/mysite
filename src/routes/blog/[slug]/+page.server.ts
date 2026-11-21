@@ -1,7 +1,7 @@
 import type { PageServerLoad } from './$types';
 import { marked } from 'marked';
 import { error } from '@sveltejs/kit';
-import { getPostBySlug } from '$lib/db';
+import { getPostBySlug } from '#lib/db';
 
 export const load: PageServerLoad = async ({ params }) => {
     const item = getPostBySlug(params.slug);

@@ -1,5 +1,5 @@
 <script lang="ts">
-  import AdminTable from '$lib/components/AdminTable.svelte';
+  import AdminTable from '#lib/components/AdminTable.svelte';
   import type { PageProps } from './$types';
 
   let { data, form }: PageProps = $props();

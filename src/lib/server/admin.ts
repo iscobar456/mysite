@@ -1,5 +1,5 @@
-import { db } from "$lib/db";
-import { isLoggedIn } from "$lib/server/auth";
+import { db } from "#lib/db";
+import { isLoggedIn } from "#lib/server/auth";
 import { fail, redirect, type Actions, type Cookies } from "@sveltejs/kit";
 import { z, string } from "zod/v4";
 

@@ -1,7 +1,7 @@
 import type { PageServerLoad } from './$types';
 import { marked } from 'marked';
 import { error } from '@sveltejs/kit';
-import { getBookBySlug } from '$lib/db';
+import { getBookBySlug } from '#lib/db';
 
 export const load: PageServerLoad = async ({ params }) => {
     const item = getBookBySlug(params.slug);

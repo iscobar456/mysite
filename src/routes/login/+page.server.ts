@@ -1,5 +1,5 @@
-import { db } from "$lib/db";
-import { createSession, generateSessionToken } from "$lib/server/auth";
+import { db } from "#lib/db";
+import { createSession, generateSessionToken } from "#lib/server/auth";
 import argon2 from 'argon2';
 import { redirect, type Actions } from "@sveltejs/kit";
 import z from "zod";

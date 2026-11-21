@@ -1,4 +1,4 @@
-import { isLoggedIn, validateSessionToken } from "$lib/server/auth";
+import { isLoggedIn, validateSessionToken } from "#lib/server/auth";
 import { redirect } from "@sveltejs/kit";
 import type { LayoutServerLoad } from "./$types";
 

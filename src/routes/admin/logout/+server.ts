@@ -1,4 +1,4 @@
-import { invalidateSessionToken } from "$lib/server/auth";
+import { invalidateSessionToken } from "#lib/server/auth";
 import { redirect, type RequestHandler } from "@sveltejs/kit";
 
 export const POST: RequestHandler = ({ cookies }) => {

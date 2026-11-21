@@ -1,6 +1,6 @@
 <script lang="ts">
   import { onMount } from 'svelte';
-  import type { Book, Post } from '$lib/types/blog';
+  import type { Book, Post } from '#lib/types/blog';
   import 'gridjs/dist/theme/mermaid.min.css';
 
   type Item = Post | Book;
